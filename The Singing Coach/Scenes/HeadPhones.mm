@@ -1,9 +1,9 @@
 //
 //  HeadPhones.m
-//  MelodyTest
+//  TheSingingCoach
 //
-//  Created by CrimsonLycans on 2/8/14.
-//  Copyright (c) 2014 CrimsonLycans. All rights reserved.
+//  Created by Natalie and Edward on 11/6/14.
+//  Copyright (c) 2014 Natalie and Edward. All rights reserved.
 //
 
 #import "HeadPhones.h"
