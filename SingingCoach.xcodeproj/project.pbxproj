@@ -16,6 +16,8 @@
 		DF18A525198FE17E00829DDC /* ipadLS.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A51C198FE17E00829DDC /* ipadLS.png */; };
 		DF18A526198FE17E00829DDC /* launchimg.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A51D198FE17E00829DDC /* launchimg.png */; };
 		DF18A527198FE17E00829DDC /* launchimg2.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A51E198FE17E00829DDC /* launchimg2.png */; };
+		DF18A52A198FE3BC00829DDC /* iconiphoneNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A528198FE3BC00829DDC /* iconiphoneNormal.png */; };
+		DF18A52B198FE3BC00829DDC /* iphoneNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A529198FE3BC00829DDC /* iphoneNormal.png */; };
 		DF422C91198F9FED00B62997 /* AudioController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DF422C8A198F9FED00B62997 /* AudioController.mm */; };
 		DF422C92198F9FED00B62997 /* BufferManager.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF422C8B198F9FED00B62997 /* BufferManager.cpp */; };
 		DF422C93198F9FED00B62997 /* DCRejectionFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = DF422C8D198F9FED00B62997 /* DCRejectionFilter.cpp */; };
@@ -124,6 +126,8 @@
 		DF18A51C198FE17E00829DDC /* ipadLS.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadLS.png; sourceTree = "<group>"; };
 		DF18A51D198FE17E00829DDC /* launchimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchimg.png; sourceTree = "<group>"; };
 		DF18A51E198FE17E00829DDC /* launchimg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchimg2.png; sourceTree = "<group>"; };
+		DF18A528198FE3BC00829DDC /* iconiphoneNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconiphoneNormal.png; sourceTree = "<group>"; };
+		DF18A529198FE3BC00829DDC /* iphoneNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneNormal.png; sourceTree = "<group>"; };
 		DF422C89198F9FED00B62997 /* AudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioController.h; sourceTree = "<group>"; };
 		DF422C8A198F9FED00B62997 /* AudioController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AudioController.mm; sourceTree = "<group>"; };
 		DF422C8B198F9FED00B62997 /* BufferManager.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BufferManager.cpp; sourceTree = "<group>"; };
@@ -272,6 +276,8 @@
 				DF18A519198FE17E00829DDC /* ipad.png */,
 				DF18A51A198FE17E00829DDC /* ipadHR.png */,
 				DF18A51B198FE17E00829DDC /* ipadHRLS.png */,
+				DF18A528198FE3BC00829DDC /* iconiphoneNormal.png */,
+				DF18A529198FE3BC00829DDC /* iphoneNormal.png */,
 				DF18A51C198FE17E00829DDC /* ipadLS.png */,
 				DF18A51D198FE17E00829DDC /* launchimg.png */,
 				DF18A51E198FE17E00829DDC /* launchimg2.png */,
@@ -592,6 +598,7 @@
 				DF18A524198FE17E00829DDC /* ipadHRLS.png in Resources */,
 				DF45BC7F198F8E8700C2BFB3 /* pianoD3D5.png in Resources */,
 				DF45BC81198F8E8700C2BFB3 /* pianoG3G5.png in Resources */,
+				DF18A52A198FE3BC00829DDC /* iconiphoneNormal.png in Resources */,
 				DF45BC84198F8E8700C2BFB3 /* SaveRecording.png in Resources */,
 				DF18A522198FE17E00829DDC /* ipad.png in Resources */,
 				DF45BC88198F8E8700C2BFB3 /* saySomethingLyrics.txt in Resources */,
@@ -613,6 +620,7 @@
 				DF45BBFC198F8E4A00C2BFB3 /* Main.storyboard in Resources */,
 				DF45BC5D198F8E8700C2BFB3 /* BeginOverlay.png in Resources */,
 				DF45BC86198F8E8700C2BFB3 /* SaySomething.png in Resources */,
+				DF18A52B198FE3BC00829DDC /* iphoneNormal.png in Resources */,
 				DF18A527198FE17E00829DDC /* launchimg2.png in Resources */,
 				DF45BC79198F8E8700C2BFB3 /* Pause.png in Resources */,
 			);
