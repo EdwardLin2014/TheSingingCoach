@@ -14,6 +14,8 @@
 
 @interface HeadPhones : SKScene
 {
+    double          _scaleX;
+    double          _scaleY;
     SKSpriteNode*   _headPhones;
     SKSpriteNode*   _beginOverlay;
     int             _hpState;
@@ -28,7 +30,6 @@
     NSString*       _lyricsName;
     float           _lyricsDuration;
 }
-
 /* -----------------------------Public Methods--------------------------------- Begin */
 -(id)initWithSize:(CGSize)size
      withSongName:(NSString*)songName
@@ -39,13 +40,10 @@
     withPianoName:(NSString*)pianoName
        withLyrics:(NSString *)lyricsName
 withLyricsDuration:(float)lyricsDuration;
-
 /* -----------------------------Public Methods--------------------------------- End */
 
 /* -----------------------------Private Methods--------------------------------- Begin */
-
 - (BOOL)isHeadsetPluggedIn;
 /* -----------------------------Private Methods--------------------------------- End */
-
 
 @end

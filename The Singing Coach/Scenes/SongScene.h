@@ -12,9 +12,12 @@
 #import "NoteClass.h"
 
 @interface SongScene : SKScene{
+    double          _scaleY;
+    double          _scaleX;
+    
     AVAudioPlayer *_player;
     
-    //For pitch app
+    //For pitch detector
 	AudioController*    _audioController;
     NSString*           _pitch;
     UInt32              _sampleRate;
@@ -47,7 +50,7 @@
     float               _secPerBeat;                        // the number of seconds a beat have
     float               _oneBeatLength;                     // the length in pixel, of a beat
     
-    // FOR ARROWS
+    //For arrows
     SKShapeNode*        _lineNode;                          // the node that will draw the pathToDraw each update
     SKSpriteNode*       _Arrow;                             // the arrow node
     NSMutableArray*     _paths;                             // the array of points to form pathToDraw
@@ -70,11 +73,10 @@
     int                 _songIsOver;                        // state to indicate whether or not song is over
     SKSpriteNode*       _songOver;                          // the node that is going to be rendered when song is over
     
-    //param
+    //parameters
     NSString*           _songName;                          // the song name to be played in the BG
     float               _delay;                             // amount of time in seconds for the song to play wrt loading time
     NSString*           _pianoName;                         // the name of the piano file to render
-    
     
     //For scoring
     int                 _currentScore;
@@ -91,8 +93,7 @@
     
     //For detecting microphone
     SKSpriteNode*       _headPhones;
-    
-    
+
     UISwipeGestureRecognizer* _swipeRightGesture;
     UISwipeGestureRecognizer* _swipeLeftGesture;
     int                       _TextState;
@@ -118,7 +119,6 @@
     withPianoName:(NSString*)pianoName
        withLyrics:(NSString*)lyricsName
 withLyricsDuration:(float)lyricsDuration;
-
 /* -----------------------------Public Methods--------------------------------- End */
 
 /* -----------------------------Private Methods--------------------------------- Begin */
@@ -139,7 +139,6 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay;
 ( UISwipeGestureRecognizer *) recognizer;                   //Selector for swipe right
 -(void) handleSwipeLeft:
 ( UISwipeGestureRecognizer*) recognizer;                    //Selector for swipe left
-
 /* -----------------------------Private Methods--------------------------------- End */
 
 @end

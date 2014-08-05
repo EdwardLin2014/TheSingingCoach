@@ -5,13 +5,13 @@
 //  Created by Natalie and Edward on 11/6/14.
 //  Copyright (c) 2014 Natalie and Edward. All rights reserved.
 //
+
 #import <SpriteKit/SpriteKit.h>
 #import "MainMenu.h"
 #import <AVFoundation/AVFoundation.h>
 #import "HeadPhones.h"
 
 @interface SongChooseMenu : SKScene<UITextFieldDelegate>
-
 {
     AVAudioPlayer*  _player;
     AVAudioPlayer*  _listen;
@@ -19,8 +19,8 @@
     AVAudioPlayer*  _listenWings;
     AVAudioPlayer*  _listenDemons;
     
-    double          _scaleH;
-    double          _scaleW;
+    double          _scaleY;
+    double          _scaleX;
     
     int             _listenButtonChandelierState;   //state whether chandelier listen button is pressed
     SKSpriteNode*   _ChandelierListenNode;
@@ -43,7 +43,6 @@
     NSUserDefaults* _userDefs;
 }
 
-
 /* -----------------------------Private Methods--------------------------------- Begin */
 -(CGRect)fieldRect;
 -(void) processReturn;
@@ -51,6 +50,5 @@
 -(BOOL) textFieldShouldReturn:(UITextField *)theTextField;
 -(float) getC3YPos:(NSString*)pianoName;
 /* -----------------------------Private Methods--------------------------------- End */
-
 
 @end

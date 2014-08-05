@@ -13,5 +13,8 @@
 @interface HighScorePage : SKScene
 {
     AVAudioPlayer*  _player;
+    double          _scaleY;
+    double          _scaleX;
 }
+
 @end

@@ -8,10 +8,6 @@
 
 #import "HeadPhones.h"
 
-@interface HeadPhones ()
-
-@end
-
 @implementation HeadPhones
 
 -(id)initWithSize:(CGSize)size
@@ -26,6 +22,9 @@ withLyricsDuration:(float)lyricsDuration
 {
     if (self = [super initWithSize:size])
     {
+        _scaleX = self.frame.size.width/1136;
+        _scaleY = self.frame.size.height/640;
+        
         _songName = songName;
         _tempoInput = tempoInput;
         _delay = delay;
@@ -40,11 +39,15 @@ withLyricsDuration:(float)lyricsDuration
         _headPhones.anchorPoint = CGPointMake(0, 0);
         _headPhones.position = CGPointMake(0, 0);
         _headPhones.zPosition = 5;
+        _headPhones.xScale = _scaleX;
+        _headPhones.yScale = _scaleY;
         
         _beginOverlay = [SKSpriteNode spriteNodeWithImageNamed:@"BeginOverlay.png"];
         _beginOverlay.anchorPoint = CGPointMake(0, 0);
         _beginOverlay.position = CGPointMake(0, 0);
         _beginOverlay.zPosition = 5;
+        _beginOverlay.xScale = _scaleX;
+        _beginOverlay.yScale = _scaleY;
         
         _hpState = 0;
         _displayed = 0;
@@ -56,7 +59,8 @@ withLyricsDuration:(float)lyricsDuration
 - (void)update:(NSTimeInterval)currentTime
 {
     
-    if(_hpState == 0){
+    if(_hpState == 0)
+    {
         BOOL value = [self isHeadsetPluggedIn];
         if (value == true && _yesDisplayed == 0)
         {
@@ -64,13 +68,9 @@ withLyricsDuration:(float)lyricsDuration
             [self addChild:_beginOverlay];
             _yesDisplayed = 1;
             _hpState = 1;
-            
         }
         else if (value==true && _yesDisplayed == 1)
-        {
             _hpState = 1;
-        }
-        
         else if (value == false)
         {
             if ( _displayed == 0)
@@ -80,9 +80,7 @@ withLyricsDuration:(float)lyricsDuration
             }
         }
     }
-    
 }
-
 
 - (BOOL)isHeadsetPluggedIn
 {
@@ -101,21 +99,9 @@ withLyricsDuration:(float)lyricsDuration
     {
         SKScene *songScene = [[SongScene alloc]initWithSize:self.size withSongName:_songName withTempo:_tempoInput withDelay:_delay withInput:_input withC3YPos:_C3Position withPianoName:_pianoName withLyrics:_lyricsName withLyricsDuration:_lyricsDuration];
         songScene.scaleMode = SKSceneScaleModeAspectFill;
-        
         [self.view presentScene:songScene transition:[SKTransition fadeWithDuration:1.5f]];
     }
     
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

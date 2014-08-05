@@ -12,7 +12,6 @@
 #import "HighScorePage.h"
 
 @interface MainMenu : SKScene<UITextFieldDelegate>
-
 {
     AVAudioPlayer*  _ButtonSound;
     
@@ -25,8 +24,10 @@
     int             _PNstate;
     SKLabelNode*    _PlayerNameText;
     NSString*       _myName;
+    
+    double          _scaleY;
+    double          _scaleX;
 }
-
 
 @property (nonatomic, retain) AVAudioPlayer *ButtonSound;
 
