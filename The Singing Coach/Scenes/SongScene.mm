@@ -405,7 +405,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
         
         if (CGRectContainsPoint(SaveRecording, location))
         {
-            [_audioController saveRecording:_songName];
+            [_audioController saveRecording:_songName PlayerName:[[NSUserDefaults standardUserDefaults] objectForKey:@"myname"]];
+            
             // change the UI
             [_SaveRecordingOverlay removeFromParent];
             [self addChild:_songOver];

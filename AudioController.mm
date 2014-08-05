@@ -538,7 +538,7 @@ static OSStatus	performRender (void                         *inRefCon,
 }
 
 // Move the audio files from tmp directory to Document directory
-- (void)saveRecording:(NSString *)SongName
+- (void)saveRecording:(NSString *)SongName PlayerName:(NSString *)PlayerName
 {
     NSError* error;
     
@@ -551,10 +551,14 @@ static OSStatus	performRender (void                         *inRefCon,
     
     NSString *OriginalDocFileName = SongName;
     OriginalDocFileName = [OriginalDocFileName stringByAppendingString:@"_Original_"];
+    OriginalDocFileName = [OriginalDocFileName stringByAppendingString:PlayerName];
+    OriginalDocFileName = [OriginalDocFileName stringByAppendingString:@"_"];
     OriginalDocFileName = [OriginalDocFileName stringByAppendingString:strNow];
     OriginalDocFileName = [OriginalDocFileName stringByAppendingString:@".wav"];
     NSString *FramesDocFileName = SongName;
     FramesDocFileName = [FramesDocFileName stringByAppendingString:@"_Frames_"];
+    FramesDocFileName = [FramesDocFileName stringByAppendingString:PlayerName];
+    FramesDocFileName = [FramesDocFileName stringByAppendingString:@"_"];
     FramesDocFileName = [FramesDocFileName stringByAppendingString:strNow];
     FramesDocFileName = [FramesDocFileName stringByAppendingString:@".wav"];
 

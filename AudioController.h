@@ -79,7 +79,7 @@
 
 // File Management
 - (void)removeTmpFiles;
-- (void)saveRecording:(NSString *)SongName;
+- (void)saveRecording:(NSString *)SongName PlayerName:(NSString *)PlayerName;
 /* -----------------------------Private Methods--------------------------------- End */
 
 @end
