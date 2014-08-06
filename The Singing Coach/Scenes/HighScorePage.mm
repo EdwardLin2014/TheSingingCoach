@@ -25,7 +25,6 @@
         BG.yScale = _scaleY;
         [self addChild:BG];
         [self setupScores];
-        
     }
     return self;
 }
@@ -123,7 +122,6 @@
     scoreValueD.yScale = _scaleY;
     scoreValueD.zPosition = 1;
     [self addChild:scoreValueD];
-    
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

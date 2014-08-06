@@ -106,7 +106,6 @@
         [self addChild:_PlayerNameText];
         [_userDefs setObject:_myName forKey:@"myname"];
     }
-    
 }
 
 -(CGRect)fieldRect

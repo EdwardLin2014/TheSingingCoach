@@ -395,7 +395,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 
             [_audioController stopIOUnit];
             _audioController = NULL;
-            [_audioController removeTmpFiles];        }
+            [_audioController removeTmpFiles];
+        }
     }
 }
 
@@ -838,7 +839,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 
 -(void) handleSwipeLeft: ( UISwipeGestureRecognizer*) recognizer
 {
-    if (_TextState == 0){
+    if (_TextState == 0)
+    {
         SKAction *goLeft = [SKAction moveByX:-138*_scaleX*2 y:0 duration:0.5f];
         [_lyricsoverlay runAction:goLeft];
         [_Text runAction:goLeft];

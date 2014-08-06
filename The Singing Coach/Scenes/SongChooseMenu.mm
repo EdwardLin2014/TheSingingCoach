@@ -355,9 +355,7 @@
                 NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
                 
                 if (error)
-                {
                     NSLog(@"Error reading file: %@", error.localizedDescription);
-                }
                 else
                 {
                     NSMutableArray* listArray = [NSMutableArray arrayWithArray:[fileContents componentsSeparatedByString:@"\n"]];
@@ -403,9 +401,7 @@
                 NSString *fileContents = [NSString stringWithContentsOfFile:filepath encoding:NSUTF8StringEncoding error:&error];
                 
                 if (error)
-                {
                     NSLog(@"Error reading file: %@", error.localizedDescription);
-                }
                 else
                 {
                     NSMutableArray* listArray = [NSMutableArray arrayWithArray:[fileContents componentsSeparatedByString:@"\n"]];
@@ -618,21 +614,17 @@
 
 -(float) getC3YPos:(NSString*)pianoName
 {
-    if ([pianoName compare:@"pianoA2A4.png"]==0){
+    if ([pianoName compare:@"pianoA2A4.png"]==0)
         return 640-571;
-    }
-    else if ([pianoName compare:@"pianoD3D5.png"]==0){
+    else if ([pianoName compare:@"pianoD3D5.png"]==0)
         return -58;
-    }
-    else if([pianoName compare:@"pianoB2B4.png"]==0){
+    else if([pianoName compare:@"pianoB2B4.png"]==0)
         return 640-622;
-    }
-    else if ([pianoName compare:@"pianoG2G4.png"]==0){
+    else if ([pianoName compare:@"pianoG2G4.png"]==0)
         return 640-519;
-    }
-    else if ([pianoName compare:@"pianoG3G5.png"]==0){
+    else if ([pianoName compare:@"pianoG3G5.png"]==0)
         return -188;
-    }
+
     return 0;
 }
 

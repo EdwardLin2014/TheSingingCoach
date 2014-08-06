@@ -884,7 +884,7 @@
 				DF45BC1B198F8E4B00C2BFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DF45BC1C198F8E4B00C2BFB3 /* Build configuration list for PBXNativeTarget "SingingCoach" */ = {
 			isa = XCConfigurationList;
@@ -893,7 +893,7 @@
 				DF45BC1E198F8E4B00C2BFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		DF45BC1F198F8E4B00C2BFB3 /* Build configuration list for PBXNativeTarget "SingingCoachTests" */ = {
 			isa = XCConfigurationList;
@@ -902,7 +902,7 @@
 				DF45BC21198F8E4B00C2BFB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
