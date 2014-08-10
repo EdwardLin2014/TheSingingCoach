@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DF065E7919972DF500242C41 /* MainMenuPic.png in Resources */ = {isa = PBXBuildFile; fileRef = DF065E7819972DF500242C41 /* MainMenuPic.png */; };
 		DF18A51F198FE17E00829DDC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A516198FE17E00829DDC /* icon.png */; };
 		DF18A520198FE17E00829DDC /* iconipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A517198FE17E00829DDC /* iconipad.png */; };
 		DF18A521198FE17E00829DDC /* iconipadNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A518198FE17E00829DDC /* iconipadNormal.png */; };
@@ -66,7 +67,6 @@
 		DF45BC92198F8E8700C2BFB3 /* wingslyrics.txt in Resources */ = {isa = PBXBuildFile; fileRef = DF45BC5A198F8E8700C2BFB3 /* wingslyrics.txt */; };
 		DF8E09701991694100E72FF1 /* EnterPlayerName.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E096D1991694100E72FF1 /* EnterPlayerName.png */; };
 		DF8E09711991694100E72FF1 /* exitSure.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E096E1991694100E72FF1 /* exitSure.png */; };
-		DF8E09721991694100E72FF1 /* MainMenuPic.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E096F1991694100E72FF1 /* MainMenuPic.png */; };
 		DF8E097619916C5700E72FF1 /* BeginOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E097319916C5700E72FF1 /* BeginOverlay.png */; };
 		DF8E097719916C5700E72FF1 /* PauseOverlayHeadphone.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E097419916C5700E72FF1 /* PauseOverlayHeadphone.png */; };
 		DF8E097C1991703600E72FF1 /* Chandelier.png in Resources */ = {isa = PBXBuildFile; fileRef = DF8E097B1991703600E72FF1 /* Chandelier.png */; };
@@ -117,6 +117,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DF065E7819972DF500242C41 /* MainMenuPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPic.png; sourceTree = "<group>"; };
 		DF18A516198FE17E00829DDC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DF18A517198FE17E00829DDC /* iconipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconipad.png; sourceTree = "<group>"; };
 		DF18A518198FE17E00829DDC /* iconipadNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconipadNormal.png; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		DF45BC5A198F8E8700C2BFB3 /* wingslyrics.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = wingslyrics.txt; sourceTree = "<group>"; };
 		DF8E096D1991694100E72FF1 /* EnterPlayerName.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = EnterPlayerName.png; sourceTree = "<group>"; };
 		DF8E096E1991694100E72FF1 /* exitSure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = exitSure.png; sourceTree = "<group>"; };
-		DF8E096F1991694100E72FF1 /* MainMenuPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPic.png; sourceTree = "<group>"; };
 		DF8E097319916C5700E72FF1 /* BeginOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = BeginOverlay.png; sourceTree = "<group>"; };
 		DF8E097419916C5700E72FF1 /* PauseOverlayHeadphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PauseOverlayHeadphone.png; sourceTree = "<group>"; };
 		DF8E097B1991703600E72FF1 /* Chandelier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chandelier.png; sourceTree = "<group>"; };
@@ -424,8 +424,8 @@
 				DF8E09871991709400E72FF1 /* Listen.png */,
 				DF8E09881991709400E72FF1 /* ListenOff.png */,
 				DF8E09AD1991816E00E72FF1 /* lyricsOverlay.png */,
-				DF8E096F1991694100E72FF1 /* MainMenuPic.png */,
 				DF8E09941991745D00E72FF1 /* Pause.png */,
+				DF065E7819972DF500242C41 /* MainMenuPic.png */,
 				DF8E09991991772F00E72FF1 /* PauseOverlay.png */,
 				DF8E097419916C5700E72FF1 /* PauseOverlayHeadphone.png */,
 				DF45BC44198F8E8700C2BFB3 /* pauseWord.png */,
@@ -578,7 +578,7 @@
 				DF8E09861991708D00E72FF1 /* filenotfound.png in Resources */,
 				DF45BC7C198F8E8700C2BFB3 /* pauseWord.png in Resources */,
 				DF8E098A1991709400E72FF1 /* ListenOff.png in Resources */,
-				DF8E09721991694100E72FF1 /* MainMenuPic.png in Resources */,
+				DF065E7919972DF500242C41 /* MainMenuPic.png in Resources */,
 				DF45BC64198F8E8700C2BFB3 /* ChandelierLyrics.txt in Resources */,
 				DF8E09821991706E00E72FF1 /* customSongOverlay.png in Resources */,
 				DF45BC83198F8E8700C2BFB3 /* sandeLyrics.txt in Resources */,

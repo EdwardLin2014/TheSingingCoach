@@ -22,6 +22,7 @@
     NSString*           _pitch;
     UInt32              _sampleRate;
     UInt32              _framesSize;
+    int                 _doPitch;
     
     //For Song App
     int                 _statusGo;                          // The state whether loading has finished and whether program can start loading node.

@@ -132,6 +132,8 @@ withLyricsDuration:(float)lyricsDuration
 //Method for Song Player initialization
 -(void)startApp:(NSString*)pianoName
 {
+    _doPitch = 0;
+    
     _scoreUpdate = 1;
     _predictedTotalScore = 0;
     _songLength = 0;
@@ -625,7 +627,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
         yPositionforArrow = _framesize.height - 3*_scaleY*2;
     
     CGPoint position = CGPointMake(_starting, yPositionforArrow + 5*_scaleY*2);
-    SKAction *moveToLocation = [SKAction moveTo:position duration:0.3];
+    SKAction *moveToLocation = [SKAction moveTo:position duration:0.08];
     [_Arrow runAction:moveToLocation];
 }
 
@@ -743,7 +745,13 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
                 if (myLocation <= 5*_scaleX && _NoteOutput.count > 1)
                     [self unloadNote];
                 
-                [self pitchUpdate];
+                if (_doPitch % 5 == 0)
+                {
+                    [self pitchUpdate];
+                    _doPitch = 1;
+                }
+                else
+                    _doPitch ++;
                 
                 if (_scoreUpdate %20 == 0)
                 {
