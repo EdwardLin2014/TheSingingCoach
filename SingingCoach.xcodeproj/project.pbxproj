@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B1FEB89199FB7420001D6B5 /* PitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FEB88199FB7420001D6B5 /* PitchInfo.m */; };
 		DF065E7919972DF500242C41 /* MainMenuPic.png in Resources */ = {isa = PBXBuildFile; fileRef = DF065E7819972DF500242C41 /* MainMenuPic.png */; };
 		DF18A51F198FE17E00829DDC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A516198FE17E00829DDC /* icon.png */; };
 		DF18A520198FE17E00829DDC /* iconipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A517198FE17E00829DDC /* iconipad.png */; };
@@ -117,6 +118,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B1FEB87199FB7420001D6B5 /* PitchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchInfo.h; sourceTree = "<group>"; };
+		2B1FEB88199FB7420001D6B5 /* PitchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchInfo.m; sourceTree = "<group>"; };
 		DF065E7819972DF500242C41 /* MainMenuPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPic.png; sourceTree = "<group>"; };
 		DF18A516198FE17E00829DDC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DF18A517198FE17E00829DDC /* iconipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconipad.png; sourceTree = "<group>"; };
@@ -465,6 +468,8 @@
 				DF422C8E198F9FED00B62997 /* DCRejectionFilter.h */,
 				DF422C8F198F9FED00B62997 /* WaveFFTCepstrumHelper.cpp */,
 				DF422C90198F9FED00B62997 /* WaveFFTCepstrumHelper.h */,
+				2B1FEB87199FB7420001D6B5 /* PitchInfo.h */,
+				2B1FEB88199FB7420001D6B5 /* PitchInfo.m */,
 			);
 			name = AudioUnits;
 			sourceTree = "<group>";
@@ -664,6 +669,7 @@
 				DF45BBF9198F8E4A00C2BFB3 /* AppDelegate.mm in Sources */,
 				DFEB75DE198F936800DD9A09 /* SongChooseMenu.mm in Sources */,
 				DFEB75E7198F93D100DD9A09 /* HighScorePage.mm in Sources */,
+				2B1FEB89199FB7420001D6B5 /* PitchInfo.m in Sources */,
 				DF45BBF5198F8E4A00C2BFB3 /* main.m in Sources */,
 				DF422CA1198FA01B00B62997 /* CAXException.cpp in Sources */,
 				DFEB75EA198F93F200DD9A09 /* HeadPhones.mm in Sources */,

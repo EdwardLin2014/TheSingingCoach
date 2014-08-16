@@ -10,6 +10,7 @@
 
 #import "BufferManager.h"
 #import "DCRejectionFilter.h"
+#import "PitchInfo.h"
 
 // Utility file includes
 #import "CAXException.h"
@@ -26,10 +27,7 @@
     UInt32                      _framesSize;
     Float32                     _Overlap;
     
-    Float32                     _frequency;
-    Float32                     _midiNum;
-    NSString*                   _pitch;
-    
+    PitchInfo*                  _curPitchInfo;
     NSTimer*                    _pitchEstimatedScheduler;
     
     UInt32                      _Hz120;      // G2
@@ -54,6 +52,7 @@
 - (OSStatus)stopIOUnit;
 - (void)EstimatePitch;
 - (NSString*)CurrentPitch;
+- (NSString*)CurrentPitchAboveNoise;
 - (UInt32)getFrameSize;
 - (double)sessionSampleRate;
 - (BOOL)audioChainIsBeingReconstructed;

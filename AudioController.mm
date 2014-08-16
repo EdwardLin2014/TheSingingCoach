@@ -77,10 +77,7 @@ static OSStatus	performRender (void                         *inRefCon,
         _framesSize = NewFrameSize;
         _Overlap = NewOverlap;
         
-        _frequency = 0;
-        _midiNum = 0;
-        _pitch = @"nil";
-        
+        _curPitchInfo = [[PitchInfo alloc] init];
         _pitchEstimatedScheduler = NULL;
         
         _Hz120 = floor(120*(float)_framesSize/(float)_sampleRate);
@@ -173,34 +170,41 @@ static OSStatus	performRender (void                         *inRefCon,
             Float32 fftData[_framesSize];
             Float32 cepstrumData[_framesSize];
             Float32 fftlogcepstrumData[_framesSize];
-            Float32 _curAmp;
+            Float32 curAmp;
             
             [self GetFFTOutput:fftData];
             _bufferManager->GetCepstrumOutput(fftData, cepstrumData);
             _bufferManager->GetFFTLogCepstrumOutput(fftData, cepstrumData, fftlogcepstrumData);
             
-            Float32 _maxAmp = -INFINITY;
-            int _bin = _Hz120;
+            [_curPitchInfo resetParameters];
+            _curPitchInfo._bin = _Hz120;
             for (int i=_Hz120; i<=_Hz1100; i++)
             {
-                _curAmp = fftlogcepstrumData[i];
-                if (_curAmp > _maxAmp)
+                curAmp = fftlogcepstrumData[i];
+                if (curAmp > _curPitchInfo._maxAmp)
                 {
-                    _maxAmp = _curAmp;
-                    _bin = i;
+                    _curPitchInfo._maxAmp = curAmp;
+                    _curPitchInfo._bin = i;
                 }
             }
             
-            _frequency = _bin*((float)_sampleRate/(float)_framesSize);
-            _midiNum = [self freqToMIDI:_frequency];
-            _pitch = [self midiToPitch:_midiNum];
-            //NSLog(@"Current: %.12f %d %.12f %@", _frequency, _bin, _midiNum, _pitch);
+            _curPitchInfo._frequency = _curPitchInfo._bin*((float)_sampleRate/(float)_framesSize);
+            _curPitchInfo._midiNum = [PitchInfo freqToMIDI:_curPitchInfo._frequency];
+            _curPitchInfo._pitch = [PitchInfo midiToPitch:_curPitchInfo._midiNum];
+            
+            // Only Audio which excess certain amplitude is considered as voice
+            if (_curPitchInfo._maxAmp > 100)
+                _curPitchInfo._pitchAboveNoise = _curPitchInfo._pitch;
         }
     }
 }
 - (NSString*)CurrentPitch
 {
-    return _pitch;
+    return _curPitchInfo._pitch;
+}
+- (NSString*)CurrentPitchAboveNoise
+{
+    return _curPitchInfo._pitchAboveNoise;
 }
 - (UInt32)getFrameSize
 {

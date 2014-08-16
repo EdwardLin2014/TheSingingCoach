@@ -617,7 +617,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 //Method called by Update to check pitch of the input Soundwave
 -(void)pitchUpdate
 {
-    _pitch = [_audioController CurrentPitch];
+    //_pitch = [_audioController CurrentPitch];
+    _pitch = [_audioController CurrentPitchAboveNoise];
     int distance = [self getNoteDistance:_pitch];
     float yPositionforArrow  =  _C3Ypos*_scaleY + 13 * distance * _scaleY *2+ 1 *_scaleY*2;
     
