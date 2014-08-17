@@ -14,6 +14,7 @@
 @interface SongScene : SKScene{
     double          _scaleY;
     double          _scaleX;
+    int             _voiceState;
     
     AVAudioPlayer *_player;
     
@@ -24,6 +25,7 @@
     UInt32              _framesSize;
     int                 _doPitch;
     NSString*           _previousPitch;
+    SKLabelNode*        _VoiceWarning;
     //For Song App
     int                 _statusGo;                          // The state whether loading has finished and whether program can start loading node.
     int                 _firstColision;                     // The state whether first collision with scorebar has occured

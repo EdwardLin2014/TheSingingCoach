@@ -132,8 +132,10 @@ withLyricsDuration:(float)lyricsDuration
 //Method for Song Player initialization
 -(void)startApp:(NSString*)pianoName
 {
+    _voiceState = 0;
     _doPitch = 0;
     _previousPitch = @"";
+    _pitch = @"D4";
     
     _scoreUpdate = 1;
     _predictedTotalScore = 0;
@@ -542,7 +544,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
         int b = [self getNoteDistance:_pitch];
         if (a == b)
             _currentScore++;
-        printf("\n current pitch is : %d, estimated pitch is: %d", a,b);
+       // printf("\n current pitch is : %d, estimated pitch is: %d", a,b);
 
         _totalCurrentscore ++;
         _totalscore++;
@@ -623,8 +625,20 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 //Method called by Update to check pitch of the input Soundwave
 -(void)pitchUpdate
 {
-    _pitch = [_audioController CurrentPitch];
-    //_pitch = [_audioController CurrentPitchAboveNoise];
+    NSString *_pitchNew = [_audioController CurrentPitchAboveNoise];
+   // NSLog(_pitchNew);
+    if ([_pitchNew compare:@"nil"]!=0)
+    {
+        if (_voiceState == 1)
+            [self RemoveVoiceWarning];
+        _pitch = _pitchNew;
+    }
+    else
+    {
+        if(_voiceState == 0)
+            [self AddVoiceWarning];
+    }
+    
     int distance = [self getNoteDistance:_pitch];
     float yPositionforArrow  =  _C3Ypos*_scaleY + 13 * distance * _scaleY *2+ 1 *_scaleY*2;
     
@@ -883,4 +897,23 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     }
 }
 
+-(void) RemoveVoiceWarning
+{
+    _voiceState = 0;
+    [_VoiceWarning removeFromParent];
+}
+
+-(void) AddVoiceWarning
+{
+    NSString* string = @"Voice undetected, please sing louder.";
+    _VoiceWarning = [SKLabelNode labelNodeWithFontNamed:@"IowanOldStyle-Bold"];
+    _VoiceWarning.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+    _VoiceWarning.fontSize = 10*_scaleX*2;
+    _VoiceWarning.fontColor = [SKColor blackColor];
+    _VoiceWarning.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame)-5);
+    _VoiceWarning.text = string;
+    _VoiceWarning.zPosition = 25;
+    [self addChild:_VoiceWarning];
+    _voiceState = 1;
+}
 @end
