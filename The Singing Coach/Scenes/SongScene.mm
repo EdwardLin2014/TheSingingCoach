@@ -133,6 +133,7 @@ withLyricsDuration:(float)lyricsDuration
 -(void)startApp:(NSString*)pianoName
 {
     _doPitch = 0;
+    _previousPitch = @"";
     
     _scoreUpdate = 1;
     _predictedTotalScore = 0;
@@ -526,7 +527,6 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     float noteMin = CGRectGetMinX(clash.frame);
     float barMin = CGRectGetMinX(bar.frame);
     float noteMax = CGRectGetMaxX(clash.frame);
-    float range = [_HittingNode getyLocation];
     
     if (barMin > noteMin && noteMax > barMin && [pitchHitNode compare:@"rest"] != 0){
         if (_firstColision == 0){
@@ -535,9 +535,13 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
             double timeDelay = time - _currTime;
             printf("\n first collision time %f", timeDelay);
         }
-        if (_Arrow.self.frame.origin.y <= range + 11*2*_scaleY && _Arrow.self.frame.origin.y>=range)
-            _currentScore++;
         
+        int a = [self getNoteDistance:pitchHitNode];
+        int b = [self getNoteDistance:_pitch];
+        if (a == b)
+            _currentScore++;
+        printf("\n current pitch is : %d, estimated pitch is: %d", a,b);
+
         _totalCurrentscore ++;
         _totalscore++;
     }
@@ -617,8 +621,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 //Method called by Update to check pitch of the input Soundwave
 -(void)pitchUpdate
 {
-    //_pitch = [_audioController CurrentPitch];
-    _pitch = [_audioController CurrentPitchAboveNoise];
+    _pitch = [_audioController CurrentPitch];
+    //_pitch = [_audioController CurrentPitchAboveNoise];
     int distance = [self getNoteDistance:_pitch];
     float yPositionforArrow  =  _C3Ypos*_scaleY + 13 * distance * _scaleY *2+ 1 *_scaleY*2;
     
@@ -627,9 +631,14 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     else if(yPositionforArrow > _framesize.height)
         yPositionforArrow = _framesize.height - 3*_scaleY*2;
     
-    CGPoint position = CGPointMake(_starting, yPositionforArrow + 5*_scaleY*2);
-    SKAction *moveToLocation = [SKAction moveTo:position duration:0.08];
-    [_Arrow runAction:moveToLocation];
+    if ([_previousPitch compare:_pitch] != 0)
+    {
+        CGPoint position = CGPointMake(_starting, yPositionforArrow + 5*_scaleY*2);
+        SKAction *moveToLocation = [SKAction moveTo:position duration:0.2];
+        [_Arrow runAction:moveToLocation];
+        _previousPitch = _pitch;
+    }
+
 }
 
 -(void)update:(CFTimeInterval)currentTime
@@ -739,8 +748,6 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
                 if (location < nextNode && _index < _NoteInput.count)
                     [self loadNote];
                 
-                [self clashCheck];
-                
                 SKSpriteNode *frntNode = [_FrontNode getNoteShape];
                 float myLocation = frntNode.frame.origin.x + (frntNode.frame.size.width - 10)*_scaleX;
                 if (myLocation <= 5*_scaleX && _NoteOutput.count > 1)
@@ -753,6 +760,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
                 }
                 else
                     _doPitch ++;
+                
+                [self clashCheck];
                 
                 if (_scoreUpdate %20 == 0)
                 {
