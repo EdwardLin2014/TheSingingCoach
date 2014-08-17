@@ -528,8 +528,10 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     float noteMax = CGRectGetMaxX(clash.frame);
     float range = [_HittingNode getyLocation];
     
-    if (barMin > noteMin && noteMax > barMin && [pitchHitNode compare:@"rest"] != 0){
-        if (_firstColision == 0){
+    if (barMin > noteMin && noteMax > barMin && [pitchHitNode compare:@"rest"] != 0)
+    {
+        if (_firstColision == 0)
+        {
             _firstColision = 1;
             double time = CACurrentMediaTime();
             double timeDelay = time - _currTime;
@@ -639,7 +641,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     {
         //Do not update anything if song is paused
     }
-    else if(_songIsOver == 1){
+    else if(_songIsOver == 1)
+    {
         //Do note update anything
     }
     else if (_songIsOver == 2 )
@@ -722,7 +725,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
             [_player pause];
             self.view.paused = YES;
         }
-        else{
+        else
+        {
             if (currentTime - _currTime > _loading)
             {
                 if (_statusGo == 0)

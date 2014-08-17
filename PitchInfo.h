@@ -21,6 +21,12 @@
 -(void)resetParameters;
 
 + (Float32)freqToMIDI:(Float32)frequency;
++ (Float32)midiToFreq:(Float32)midiNote;
+
 + (NSString*)midiToPitch:(Float32)midiNote;
++ (Float32)pitchToMIDI:(NSString*)pitch;
+
++ (Float32)centDiffInPitch:(NSString*)pitchA with:(NSString*)pitchB;
++ (Float32)centDiffInFreq:(Float32)frequencyA with:(Float32)frequencyB;
 
 @end
