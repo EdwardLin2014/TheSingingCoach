@@ -53,6 +53,7 @@
 - (void)EstimatePitch;
 - (NSString*)CurrentPitch;
 - (NSString*)CurrentPitchAboveNoise;
+- (BOOL)isMatchedTargetPitch:(NSString*)targetPitch;
 - (UInt32)getFrameSize;
 - (double)sessionSampleRate;
 - (BOOL)audioChainIsBeingReconstructed;

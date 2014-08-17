@@ -206,6 +206,13 @@ static OSStatus	performRender (void                         *inRefCon,
 {
     return _curPitchInfo._pitchAboveNoise;
 }
+- (BOOL)isMatchedTargetPitch:(NSString*)targetPitch
+{
+    if ([PitchInfo centDiffInPitch:[self CurrentPitchAboveNoise] with:targetPitch] < 50)
+        return YES;
+    else
+        return NO;
+}
 - (UInt32)getFrameSize
 {
     return _framesSize;
