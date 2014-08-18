@@ -900,11 +900,14 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 -(void) RemoveVoiceWarning
 {
     _voiceState = 0;
-    [_VoiceWarning removeFromParent];
+    //[_VoiceWarning removeFromParent];
+    _Arrow.colorBlendFactor = 0;
+    _Arrow.color = [UIColor blackColor];
 }
 
 -(void) AddVoiceWarning
 {
+    /*
     NSString* string = @"Voice undetected, please sing louder.";
     _VoiceWarning = [SKLabelNode labelNodeWithFontNamed:@"IowanOldStyle-Bold"];
     _VoiceWarning.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
@@ -913,7 +916,9 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     _VoiceWarning.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame)-5);
     _VoiceWarning.text = string;
     _VoiceWarning.zPosition = 25;
-    [self addChild:_VoiceWarning];
+    [self addChild:_VoiceWarning];*/
+    _Arrow.colorBlendFactor = 1;
+    _Arrow.color = [UIColor blueColor];
     _voiceState = 1;
 }
 @end
