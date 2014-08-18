@@ -146,6 +146,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay;
 ( UISwipeGestureRecognizer *) recognizer;                   //Selector for swipe right
 -(void) handleSwipeLeft:
 ( UISwipeGestureRecognizer*) recognizer;                    //Selector for swipe left
+-(void) RemoveVoiceWarning;
+-(void) AddVoiceWarning;
 /* -----------------------------Private Methods--------------------------------- End */
 
 @end
