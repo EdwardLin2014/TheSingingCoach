@@ -132,7 +132,7 @@ withLyricsDuration:(float)lyricsDuration
 //Method for Song Player initialization
 -(void)startApp:(NSString*)pianoName
 {
-    _voiceState = 0;
+    _voiceState = 1;
     _doPitch = 0;
     _previousPitch = @"";
     _pitch = @"D4";
@@ -546,12 +546,12 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
             printf("\n first collision time %f", timeDelay);
         }
         
-        int a = [self getNoteDistance:pitchHitNode];
-        int b = [self getNoteDistance:_pitch];
-        if (a == b)
+        int pitchHitNodeDistance = [self getNoteDistance:pitchHitNode];
+        int pitchDistance = [self getNoteDistance:_pitch];
+        if (pitchHitNodeDistance == pitchDistance)
             _currentScore++;
         
-        if (CGRectGetMidY(_Arrow.frame)<= range + 26*_scaleY && CGRectGetMidY(_Arrow.frame)>=range)
+        if (CGRectGetMidY(_Arrow.frame)<= range + 26*_scaleY && CGRectGetMidY(_Arrow.frame)>=range && _voiceState == 0)
         {
             SKEmitterNode *scoreParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"Scored" ofType:@"sks"]];
             [scoreParticle setNumParticlesToEmit:3];
@@ -563,7 +563,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
             
             SKEmitterNode *scoreWordParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"WordScored" ofType:@"sks"]];
             [scoreWordParticle setNumParticlesToEmit:3];
-            scoreWordParticle.position = CGPointMake(_framesize.width/2 + 68 *_scaleX, _scaleY*(320-6)*2);
+            scoreWordParticle.position = CGPointMake(_framesize.width/2 + 72 *_scaleX, _scaleY*(320-6)*2);
             scoreWordParticle.zPosition = 5;
             scoreWordParticle.xScale = _scaleX;
             scoreWordParticle.yScale = _scaleY;
@@ -589,8 +589,6 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
                     [_Arrow runAction:changeGreyTexture];
             }
         }
-       // printf("\n current pitch is : %d, estimated pitch is: %d", a,b);
-
         _totalCurrentscore ++;
         _totalscore++;
     }
@@ -614,7 +612,6 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     
     if(barMin < noteMinSpark && noteMinSpark < barMax && _SparkleIdx< _NoteInput.count && [pitchHitNodeSpark compare:@"rest"] != 0)
     {
-        
         SKEmitterNode *explosionTwo = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"explode" ofType:@"sks"]];
         [explosionTwo setNumParticlesToEmit:40];
         explosionTwo.position = CGPointMake(_scoreBarXpos, [_SparkledNode getyLocation] + 5*_scaleY*2);
@@ -674,16 +671,15 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 
     if ([_pitchNew compare:@"nil"]!=0)
     {
-        if (_voiceState == 1 && _ArrowState == 0)
+        if (_voiceState == 1)
             [self RemoveVoiceWarning];
         _pitch = _pitchNew;
     }
     else
     {
-        if(_voiceState == 0 && _ArrowState == 0)
+        if(_voiceState == 0)
             [self AddVoiceWarning];
     }
-    
     int distance = [self getNoteDistance:_pitch];
     float yPositionforArrow  =  _C3Ypos*_scaleY + 13 * distance * _scaleY *2+ 1 *_scaleY*2;
     
@@ -695,7 +691,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     if ([_previousPitch compare:_pitch] != 0)
     {
         CGPoint position = CGPointMake(_starting, yPositionforArrow + 5*_scaleY*2);
-        SKAction *moveToLocation = [SKAction moveTo:position duration:0.2];
+        SKAction *moveToLocation = [SKAction moveTo:position duration:0.12];
         [_Arrow runAction:moveToLocation];
         _previousPitch = _pitch;
     }
