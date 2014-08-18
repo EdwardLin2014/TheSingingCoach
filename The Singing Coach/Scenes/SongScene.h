@@ -25,7 +25,7 @@
     UInt32              _framesSize;
     int                 _doPitch;
     NSString*           _previousPitch;
-    SKLabelNode*        _VoiceWarning;
+
     //For Song App
     int                 _statusGo;                          // The state whether loading has finished and whether program can start loading node.
     int                 _firstColision;                     // The state whether first collision with scorebar has occured
@@ -60,6 +60,10 @@
     float               _moveBy;                            // the speed of the tail generation
     float               _starting;                          // the starting location of a path generation
     float               _offset;                            // the offset from the middle of the arrow to to end of the arrow
+    SKSpriteNode*       _ArrowBlue;
+    SKSpriteNode*       _ArrowBlack;
+    int                 _ArrowState;
+    SKSpriteNode*       _ArrowGrey;
     
     double              _currTime;                          // the time when the scene is just started (init)
     double              _loading;                           // number of seconds before notes are rendered to screen

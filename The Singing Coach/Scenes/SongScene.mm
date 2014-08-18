@@ -286,7 +286,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     SKNode *Piano = [self childNodeWithName:@"PIANO"];
     _moveBy = -1.0;
     _paths = [[NSMutableArray alloc]init];
-    _Arrow = [SKSpriteNode spriteNodeWithImageNamed:@"arrow2.png"];
+    _Arrow = [SKSpriteNode spriteNodeWithImageNamed:@"arrow3.png"];
     _offset = 13 * _scaleX*2;
     _starting = Piano.frame.origin.x - _offset;
     _Arrow.position = CGPointMake(_starting, 200*_scaleY*2);
@@ -295,6 +295,11 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     _Arrow.zPosition = 2;
     _Arrow.name = @"ARROW";
     [self addChild:_Arrow];
+    
+    //Setting up Blue and Black and Grey arrow
+    _ArrowBlack = [SKSpriteNode spriteNodeWithImageNamed:@"arrow2.png"];
+    _ArrowBlue = [SKSpriteNode spriteNodeWithImageNamed:@"arrow.png"];
+    _ArrowGrey = [SKSpriteNode spriteNodeWithImageNamed:@"arrow3.png"];
     
     //Setting up tail path
     CGMutablePathRef _pathToDraw = CGPathCreateMutable();
@@ -529,7 +534,8 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     float noteMin = CGRectGetMinX(clash.frame);
     float barMin = CGRectGetMinX(bar.frame);
     float noteMax = CGRectGetMaxX(clash.frame);
-    
+    float range = [_HittingNode getyLocation];
+
     if (barMin > noteMin && noteMax > barMin && [pitchHitNode compare:@"rest"] != 0)
     {
         if (_firstColision == 0)
@@ -544,6 +550,45 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
         int b = [self getNoteDistance:_pitch];
         if (a == b)
             _currentScore++;
+        
+        if (CGRectGetMidY(_Arrow.frame)<= range + 26*_scaleY && CGRectGetMidY(_Arrow.frame)>=range)
+        {
+            SKEmitterNode *scoreParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"Scored" ofType:@"sks"]];
+            [scoreParticle setNumParticlesToEmit:3];
+            scoreParticle.position = CGPointMake(CGRectGetMaxX(_Arrow.frame)-10*_scaleX, CGRectGetMidY(_Arrow.frame));
+            scoreParticle.zPosition = 5;
+            scoreParticle.xScale = _scaleX;
+            scoreParticle.yScale = _scaleY;
+            [self addChild:scoreParticle];
+            
+            SKEmitterNode *scoreWordParticle = [NSKeyedUnarchiver unarchiveObjectWithFile:[[NSBundle mainBundle] pathForResource:@"WordScored" ofType:@"sks"]];
+            [scoreWordParticle setNumParticlesToEmit:3];
+            scoreWordParticle.position = CGPointMake(_framesize.width/2 + 68 *_scaleX, _scaleY*(320-6)*2);
+            scoreWordParticle.zPosition = 5;
+            scoreWordParticle.xScale = _scaleX;
+            scoreWordParticle.yScale = _scaleY;
+            [self addChild:scoreWordParticle];
+            
+            if (_ArrowState == 0)
+            {
+                _ArrowState = 1;
+                SKAction* changeTexture = [SKAction setTexture:_ArrowBlue.texture];
+                [_Arrow runAction:changeTexture];
+            }
+        }
+        else
+        {
+            if (_ArrowState == 1)
+            {
+                _ArrowState = 0;
+                SKAction* changeGreyTexture = [SKAction setTexture:_ArrowGrey.texture];
+                SKAction* changeTexture = [SKAction setTexture:_ArrowBlack.texture];
+                if (_voiceState == 0)
+                    [_Arrow runAction:changeTexture];
+                else
+                    [_Arrow runAction:changeGreyTexture];
+            }
+        }
        // printf("\n current pitch is : %d, estimated pitch is: %d", a,b);
 
         _totalCurrentscore ++;
@@ -552,7 +597,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     else if ((noteMax < barMin && _idx < _NoteInput.count) || ([pitchHitNode compare:@"rest"] == 0 && _idx < _NoteInput.count))
     {
         double scoreCompare = (double)_currentScore / (double)_totalCurrentscore;
-        if (scoreCompare >= 0.2)
+        if (scoreCompare >= 0.15)
             _myScore = _myScore + _totalCurrentscore;
         else
             _myScore = _myScore + _currentScore;
@@ -626,16 +671,16 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 -(void)pitchUpdate
 {
     NSString *_pitchNew = [_audioController CurrentPitchAboveNoise];
-   // NSLog(_pitchNew);
+
     if ([_pitchNew compare:@"nil"]!=0)
     {
-        if (_voiceState == 1)
+        if (_voiceState == 1 && _ArrowState == 0)
             [self RemoveVoiceWarning];
         _pitch = _pitchNew;
     }
     else
     {
-        if(_voiceState == 0)
+        if(_voiceState == 0 && _ArrowState == 0)
             [self AddVoiceWarning];
     }
     
@@ -900,25 +945,16 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
 -(void) RemoveVoiceWarning
 {
     _voiceState = 0;
-    //[_VoiceWarning removeFromParent];
-    _Arrow.colorBlendFactor = 0;
-    _Arrow.color = [UIColor blackColor];
+    SKAction* changeColor = [SKAction setTexture:_ArrowBlack.texture];
+    [_Arrow runAction:changeColor];
 }
 
 -(void) AddVoiceWarning
 {
-    /*
-    NSString* string = @"Voice undetected, please sing louder.";
-    _VoiceWarning = [SKLabelNode labelNodeWithFontNamed:@"IowanOldStyle-Bold"];
-    _VoiceWarning.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-    _VoiceWarning.fontSize = 10*_scaleX*2;
-    _VoiceWarning.fontColor = [SKColor blackColor];
-    _VoiceWarning.position = CGPointMake(CGRectGetMidX(self.frame),CGRectGetMidY(self.frame)-5);
-    _VoiceWarning.text = string;
-    _VoiceWarning.zPosition = 25;
-    [self addChild:_VoiceWarning];*/
-    _Arrow.colorBlendFactor = 1;
-    _Arrow.color = [UIColor blueColor];
     _voiceState = 1;
+    SKAction* changeColor = [SKAction setTexture:_ArrowGrey.texture];
+    [_Arrow runAction:changeColor];
 }
+
+
 @end
