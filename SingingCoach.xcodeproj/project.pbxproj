@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		2B1FEB89199FB7420001D6B5 /* PitchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B1FEB88199FB7420001D6B5 /* PitchInfo.m */; };
 		DF065E7919972DF500242C41 /* MainMenuPic.png in Resources */ = {isa = PBXBuildFile; fileRef = DF065E7819972DF500242C41 /* MainMenuPic.png */; };
+		DF0D9D0119A209D2005E3BDA /* Scored.sks in Resources */ = {isa = PBXBuildFile; fileRef = DF0D9CFF19A209D2005E3BDA /* Scored.sks */; };
+		DF0D9D0219A209D2005E3BDA /* WordScored.sks in Resources */ = {isa = PBXBuildFile; fileRef = DF0D9D0019A209D2005E3BDA /* WordScored.sks */; };
+		DF0D9D0419A20C4F005E3BDA /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0D9D0319A20C4F005E3BDA /* arrow.png */; };
+		DF0D9D0619A21061005E3BDA /* arrow3.png in Resources */ = {isa = PBXBuildFile; fileRef = DF0D9D0519A21061005E3BDA /* arrow3.png */; };
 		DF18A51F198FE17E00829DDC /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A516198FE17E00829DDC /* icon.png */; };
 		DF18A520198FE17E00829DDC /* iconipad.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A517198FE17E00829DDC /* iconipad.png */; };
 		DF18A521198FE17E00829DDC /* iconipadNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = DF18A518198FE17E00829DDC /* iconipadNormal.png */; };
@@ -121,6 +125,10 @@
 		2B1FEB87199FB7420001D6B5 /* PitchInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PitchInfo.h; sourceTree = "<group>"; };
 		2B1FEB88199FB7420001D6B5 /* PitchInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PitchInfo.m; sourceTree = "<group>"; };
 		DF065E7819972DF500242C41 /* MainMenuPic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenuPic.png; sourceTree = "<group>"; };
+		DF0D9CFF19A209D2005E3BDA /* Scored.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Scored.sks; sourceTree = "<group>"; };
+		DF0D9D0019A209D2005E3BDA /* WordScored.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = WordScored.sks; sourceTree = "<group>"; };
+		DF0D9D0319A20C4F005E3BDA /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		DF0D9D0519A21061005E3BDA /* arrow3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow3.png; sourceTree = "<group>"; };
 		DF18A516198FE17E00829DDC /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		DF18A517198FE17E00829DDC /* iconipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconipad.png; sourceTree = "<group>"; };
 		DF18A518198FE17E00829DDC /* iconipadNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconipadNormal.png; sourceTree = "<group>"; };
@@ -401,6 +409,8 @@
 			isa = PBXGroup;
 			children = (
 				DF8E09911991745D00E72FF1 /* 1beat.png */,
+				DF0D9D0319A20C4F005E3BDA /* arrow.png */,
+				DF0D9D0519A21061005E3BDA /* arrow3.png */,
 				DF45BC24198F8E8600C2BFB3 /* arrow2.png */,
 				DF8E097319916C5700E72FF1 /* BeginOverlay.png */,
 				DF45BC26198F8E8600C2BFB3 /* beneathyourbeautiful.mp3 */,
@@ -436,6 +446,8 @@
 				DF8E099E1991797800E72FF1 /* pianoB2B4.png */,
 				DF8E099F1991797800E72FF1 /* pianoD3D5.png */,
 				DF8E09A01991797800E72FF1 /* pianoG2G4.png */,
+				DF0D9CFF19A209D2005E3BDA /* Scored.sks */,
+				DF0D9D0019A209D2005E3BDA /* WordScored.sks */,
 				DF8E09AB1991816700E72FF1 /* pianoG3G5.png */,
 				DF45BC4B198F8E8700C2BFB3 /* sandeLyrics.txt */,
 				DF45BC4D198F8E8700C2BFB3 /* saysomething.mp3 */,
@@ -541,7 +553,7 @@
 				ORGANIZATIONNAME = "___FULLUSERNAME___";
 				TargetAttributes = {
 					DF45BBE2198F8E4A00C2BFB3 = {
-						DevelopmentTeam = 86QMJDL86F;
+						DevelopmentTeam = X7B4WZD46E;
 					};
 					DF45BC0A198F8E4B00C2BFB3 = {
 						TestTargetID = DF45BBE2198F8E4A00C2BFB3;
@@ -585,6 +597,7 @@
 				DF8E098A1991709400E72FF1 /* ListenOff.png in Resources */,
 				DF065E7919972DF500242C41 /* MainMenuPic.png in Resources */,
 				DF45BC64198F8E8700C2BFB3 /* ChandelierLyrics.txt in Resources */,
+				DF0D9D0219A209D2005E3BDA /* WordScored.sks in Resources */,
 				DF8E09821991706E00E72FF1 /* customSongOverlay.png in Resources */,
 				DF45BC83198F8E8700C2BFB3 /* sandeLyrics.txt in Resources */,
 				DF18A525198FE17E00829DDC /* ipadLS.png in Resources */,
@@ -596,13 +609,16 @@
 				DF45BC82198F8E8700C2BFB3 /* labrinth.txt in Resources */,
 				DF45BC90198F8E8700C2BFB3 /* wings.mp3 in Resources */,
 				DF8E09841991708400E72FF1 /* Demons.png in Resources */,
+				DF0D9D0619A21061005E3BDA /* arrow3.png in Resources */,
 				DF8E09961991745D00E72FF1 /* bg.png in Resources */,
 				DF18A521198FE17E00829DDC /* iconipadNormal.png in Resources */,
 				DF8E09971991745D00E72FF1 /* gameover.png in Resources */,
+				DF0D9D0119A209D2005E3BDA /* Scored.sks in Resources */,
 				DF45BC60198F8E8700C2BFB3 /* birdy.txt in Resources */,
 				DF8E09A21991797800E72FF1 /* pianoA2A4.png in Resources */,
 				DF8E09951991745D00E72FF1 /* 1beat.png in Resources */,
 				DF45BC8B198F8E8700C2BFB3 /* sixdegrees.mp3 in Resources */,
+				DF0D9D0419A20C4F005E3BDA /* arrow.png in Resources */,
 				DF45BC6E198F8E8700C2BFB3 /* explode.sks in Resources */,
 				DF45BC65198F8E8700C2BFB3 /* chandelierSia.txt in Resources */,
 				DF18A520198FE17E00829DDC /* iconipad.png in Resources */,
