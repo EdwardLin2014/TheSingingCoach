@@ -691,7 +691,7 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     if ([_previousPitch compare:_pitch] != 0)
     {
         CGPoint position = CGPointMake(_starting, yPositionforArrow + 5*_scaleY*2);
-        SKAction *moveToLocation = [SKAction moveTo:position duration:0.12];
+        SKAction *moveToLocation = [SKAction moveTo:position duration:0.121];
         [_Arrow runAction:moveToLocation];
         _previousPitch = _pitch;
     }
