@@ -594,12 +594,14 @@ withShortStartDelay:(NSTimeInterval)shortStartDelay
     }
     else if ((noteMax < barMin && _idx < _NoteInput.count) || ([pitchHitNode compare:@"rest"] == 0 && _idx < _NoteInput.count))
     {
-        double scoreCompare = (double)_currentScore / (double)_totalCurrentscore;
-        if (scoreCompare >= 0.15)
-            _myScore = _myScore + _totalCurrentscore;
-        else
-            _myScore = _myScore + _currentScore;
-        
+        if ([pitchHitNode compare:@"rest"] != 0)
+        {
+            double scoreCompare = (double)_currentScore / (double)_totalCurrentscore;
+            if (scoreCompare >= 0.15)
+                _myScore = _myScore + _totalCurrentscore;
+            else
+                _myScore = _myScore + _currentScore;
+        }
         _currentScore = 0;
         _totalCurrentscore = 0;
         _HittingNode = [_NoteInput objectAtIndex:_idx];
